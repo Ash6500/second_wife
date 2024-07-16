@@ -6,7 +6,8 @@ const SearchTodo = ({ searchTerm, setSearchTerm }) => {
       type="text"
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      placeholder="Search todos"
+      placeholder="Search Todos"
+      className='border border-gray-300 p-2 rounde w-full mb-4'
     />
   );
 };

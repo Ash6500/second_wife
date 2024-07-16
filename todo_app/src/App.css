@@ -1,18 +1,5 @@
 body{
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
+  font-family: cursive;
   margin: 0;
   padding: 0;
-}
-
-.App{
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 0 rgba(0, 0, 0, 0.1);
-}
-h1{
-  text-align: center;
-  color: #333;
 }
