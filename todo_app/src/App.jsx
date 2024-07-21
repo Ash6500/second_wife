@@ -6,6 +6,7 @@ import AddTodo from './components/AddTodo';
 import TodoItem from './components/TodoItem';
 import SearchTodo from './components/SearchTodo';
 import FilterTodo from './components/FilterTodo';
+import todo_icon from './assets/todo_icon.png'
 
 
 function App() {
@@ -63,23 +64,29 @@ function App() {
     });
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-      <h1  className='text-2xl font-bold text-center mb-6'>Second Wife</h1>
-      <SearchTodo searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <FilterTodo filter={filter} setFilter={setFilter} />
-      <AddTodo addTodo={addTodo} />
-      <ul>
-        {filteredTodos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            toggleComplete={toggleComplete}
-            updateTodo={updateTodo}
-            deleteTodo={deleteTodo}
-          />
-        ))}
-      </ul>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="bg-[#F6FB7A] bg-opacity-60 backdrop-blur-md p-6 rounded-lg shadow-lg w-full max-w-md">
+        <img src={todo_icon} alt="" className='w-8'/>
+        <h1 className="text-3xl font-bold text-center mb-3">
+          Second Wife <span className="text-yellow-500">✨</span>
+        </h1>
+        <p className='text-center mb-6'>She'll Always Remember What You Forgot!</p>
+        <SearchTodo searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <FilterTodo filter={filter} setFilter={setFilter} />
+        
+          <AddTodo addTodo={addTodo} />
+          <ul>
+            {filteredTodos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                toggleComplete={toggleComplete}
+                updateTodo={updateTodo}
+                deleteTodo={deleteTodo}
+              />
+            ))}
+          </ul>
+        
       </div>
     </div>
   );

@@ -1,33 +1,40 @@
-import React, {useState} from "react";
+// src/components/AddTodo.jsx
+import React, { useState } from 'react';
 
-const AddTodo = ({addTodo}) => {
-    const [title, setTitle] = useState('')
+const AddTodo = ({ addTodo }) => {
+  const [title, setTitle] = useState('');
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-
-        if (!title) return;
-        addTodo({
-            title,
-            completed: false,
-            id: Date.now()
-        })
-        setTitle('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title.trim()) {
+      addTodo({
+        id: Date.now(),
+        title,
+        completed: false
+      });
+      setTitle('');
     }
+  };
 
-    return(
-        <form action="" onSubmit={onSubmit} className="flex mb-4">
-            <input 
-            type = "text"
-            value = {title}
-            onChange = {(e) => setTitle(e.target.value)}
-            placeholder = "Add a new todo"
-            className="border border-gray-300 p-2 rounded-l-lg flex-grow"
-             />
+  return (
+    <form onSubmit={handleSubmit} className="mb-4">
+      <div className="flex items-center">
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded-l mt-1"
+          placeholder="Add new todo"
+        />
+        <button
+          type="submit"
+          className="bg-[#73BBA3] text-white p-[8.55px] rounded-r mt-1 hover:bg-[#B4E380] transition"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  );
+};
 
-            <button type="submit" className="bg-purple-600 text-white p-2 rounded-r-lg">Add Todo</button>
-        </form>
-    )
-}
-
-export  default AddTodo;
+export default AddTodo;
